@@ -1,5 +1,11 @@
-Tim Hartmann Scss-Styleguide
+Scss-Styleguide
 ===============
+
+Way of thinking
+---------------
+* [OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/) / [SMACSS](http://smacss.com/)
+* Progressive Enhancement
+* Responsive Development: Mobile first
 
 Table of Contents
 -----------------
@@ -187,7 +193,7 @@ Element Queries? What do you write, Tim? Uhh, Element Queries with Sass are so m
 }
 ```
 
-It’s not important for the performance that we have only one declaration of the mediaquery. Because of this we can use it more like **Element Queries.** Read more about this situation at (link:http://helloanselm.com/2014/web-performance-one-or-thousand-media-queries/ text:a blogpost) by Anselm Hannemann, which had the same question.
+It’s not important for the performance that we have only one declaration of the mediaquery. Because of this we can use it more like **Element Queries.** Read more about this situation at [a blogpost](http://helloanselm.com/2014/web-performance-one-or-thousand-media-queries/) by Anselm Hannemann, which had the same question.
 
 
 <a name="categorizing-css">Categorizing CSS-Rules</a>
@@ -257,9 +263,9 @@ Why I avoid child-selector? It is yet a good CSS-Feature? No I don’t think so.
 * Using HEX instead RGB for colors
 * Convert HEX to RGB with Sass
 * bad example:
-  * color: rgba(255,255,255,.3);
+  * color: ```rgba(255,255,255,.3);```
 * good example:
-  * color: rgba(#000, .3);
+  * color: ```rgba(#000, .3);```
 
 ```sass
 // Same styles for more than one element
