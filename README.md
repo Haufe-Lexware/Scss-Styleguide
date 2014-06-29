@@ -72,8 +72,8 @@ $button-fontcolor: $white;
 ```
 
 #### The module has three different sections
-* At first, we have a area for configurations named *Config*. There, you define often used properties like colors.
-* Now ,the main part of the file: *Base*. Writing all the styles here for all types of the module
+* At first, we have an area for configurations named *Config*. There, you define often used properties like colors.
+* Now, the main part of the file: *Base*. Writing all the styles here for all types of the module
 * The footer is named *States*. There you import the states for the current module. Nothing more.
 
 
