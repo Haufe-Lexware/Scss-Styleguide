@@ -25,7 +25,7 @@ Table of Contents
 <a name="folderstructure">General Principles</a>
 -----------
 
-Having a good structure for your development-process is so important and the basic of all. You should pay attention that the base is mostly equal in each project – it will help you and your co-workers to incorporate easy in new projects. I will show you my personal structure (based on SMACSS):
+Having a good structure for your development process is so important and the basic of all. You should pay attention that the base is mostly the same in every project – it will help you and your co-workers to incorporate easily in new projects. I will show you my personal structure (based on SMACSS):
 
 ```sass
 scss/
@@ -55,7 +55,7 @@ stylesheets/
 <a name="structure-a-module">Structure a module</a>
 -----------
 
-A structure for module? It’s not too much? No I don’t think so. A module can has so much different types or become much complexity.
+A structure for modules? Is that not too much? No, I don’t think so. A module can have so many different types or become very complex, a well planned structure will help you a lot.
 
 ```sass
 // Config
@@ -72,15 +72,15 @@ $button-fontcolor: $white;
 ```
 
 #### The module has three different sections
-* At first we have a area for Config. There I define specific colors or other stuff for configuration like colors.
-* Now the main part of the file, Base. Writing all the styles here for all types of the module
-* The footer called States. Here I import the states for the current module. Not more.
+* At first, we have a area for configurations named *Config*. There, you define often used properties like colors.
+* Now ,the main part of the file: *Base*. Writing all the styles here for all types of the module
+* The footer is named *States*. There you import the states for the current module. Nothing more.
 
 
 <a name="importing-files">Importing files</a>
 -----------
 
-In a project there are so many partials. I don’t like to include files in other files. I prefer to have one single file like application.scss  and there I include all other. For this I created a structure like in this example:
+In a project, there are so many partials. I don’t like to include files in other files, I prefer having one single file like `application.scss` and there I include all the others. For this, I creat a structure like this:
 
 ```sass
 // Base
@@ -98,7 +98,7 @@ In a project there are so many partials. I don’t like to include files in othe
 
 #### Short:
 * Structure in base, layouts and modules
-* For each section only declare @import  once
+* For each section declare `@import` only once
 * Remove file-ending
 
 
@@ -106,7 +106,7 @@ In a project there are so many partials. I don’t like to include files in othe
 -----------
 
 ### Block, Element, Modifier / Scalable and modular architecture for CSS
-I love both methods. Above all SMACSS is a must read for every frontend-developer, which want to write scalable frontends. Jonathan Snook is the author and he wrote all his experience in a little book. Combine these two methods is the best way for me to handle naming.
+I love both ways. However, SMACSS is a must read for every frontend-developer who wants to write scalable front-ends. Jonathan Snook is the author and he wrote down everything about his experience in a book. Combining these two methods is the best way for me to handle naming conventions.
 
 ```sass
 // Layouts
@@ -135,7 +135,7 @@ I love both methods. Above all SMACSS is a must read for every frontend-develope
 <a name="variables">Variables</a>
 -----------
 
-At first we create a palette for globally usage like colors. We define it in the _config.scss . If we have some specific variables, then we put it in the file for the module. Readability is so important and because of this I use separators in variable-naming: a hyphen.
+At first, we create a palette for globally usaged things like colors in the `_config.scss` file. If you have some specific variables, then put them in the file for the module. Readability is very important and because of this I use separators in variable-naming: a **hyphen**.
 
 ```sass
 // Colors (global)
@@ -152,7 +152,7 @@ $button-fontcolor: $white;
 <a name="handling-breakpoints">Handling Breakpoints: Element Queries</a>
 -----------
 
-Element Queries? What do you write, Tim? Uhh, Element Queries with Sass are so much better than the mediaqueries. Do you know how it is too have all your specific responsive styles in an own file? This is crappy I think. You write modules, then you should declare the responsive behaviour of it there. **Not in another file.**
+Element Queries? What do you write, Tim? Uhh, Element Queries with Sass are so much better than media queries. Do you know how it is to have all your specific responsive styles in an own file? In my opinion, that is crap. If you write modules you should declare the responsive behavior of it there. **Not in another file.**
 
 ```sass
 // Scss
@@ -193,13 +193,13 @@ Element Queries? What do you write, Tim? Uhh, Element Queries with Sass are so m
 }
 ```
 
-It’s not important for the performance that we have only one declaration of the mediaquery. Because of this we can use it more like **Element Queries.** Read more about this situation at [a blogpost](http://helloanselm.com/2014/web-performance-one-or-thousand-media-queries/) by Anselm Hannemann, which had the same question.
+It is not important for the performance to have only one declaration of a media query. Thus, we can use it like **Element Queries.** Read more about this in [a blog post](http://helloanselm.com/2014/web-performance-one-or-thousand-media-queries/) by Anselm Hannemann who had the same question.
 
 
 <a name="categorizing-css">Categorizing CSS-Rules</a>
 -----------
 
-If I write CSS / Scss I am really consistent and want to set rules for all kind of stuff. Because of this I have rules for categorizing my styles.
+If I write CSS / Scss I am really consistent and want to set rules for all kinds of stuff. Thus, I have a couple of rules for categorizing my styles.
 
 ```sass
 // Element-Base
@@ -218,26 +218,28 @@ If I write CSS / Scss I am really consistent and want to set rules for all kind 
 ```
 
 * Box
-  * margin, padding, display, etc.
+  * `margin`, `padding`, `display`, etc.
 * Border & Background
-  * border, border-radius, background-color, etc.
+  * `border`, `border-radius`, `background-color` and so on
 * Text
-  * color, font-size, text-transform, etc.
+  * `color`, `font-size`, `text-transform`, etc.
 * Other stuff
-  * animations, transforms, etc.
+  * `animations`, `transform`'s, ...
 
 
 <a name="css-stuff">CSS-Stuff</a>
 -----------
 
-### Avoid ID’s
-ID’s are really hard. They are to specific and mostly necessary for JS-Hooks. The better way is to use classes.
+### Avoid IDs
+IDs are really hard. They are too specific and mostly necessary for JavaScript hooks. The better way is to use classes.
 
-### Avoid !important
-If you need this, than goes something wrong at your CSS-architecture, because you need this only if you want to overwrite styles. If your structure is clean, than you will don’t need this. It’s like to shot with a cannon to sparrows.
+### Avoid `!important`
+If you need the `!important` declaration something is seriuosly wrong with your CSS architecture.
+You need this only if you want really want to overwrite styles. If your code structure is clean you won't need this. It’s like using sledgehammer to crack a nut.
 
-### Avoid child-selector
-Why I avoid child-selector? It is yet a good CSS-Feature? No I don’t think so. At my start I used it often, but more and more I learned that it makes the module to specific. It depends on the structure of your html, but what is if the order will be changed? **Use classes!**
+### Avoid child selectors
+Why do I avoid child selectors? Isn't it a good CSS-Feature, is it? No, I don’t think so.
+When I started with coding, I used it quite often. However, the more I learned about (S)CSS the more I noticed that it makes a module too specific. It depends on the structure of your HTML and can make it quite difficult to change its structure afterwards. **Use classes!**
 
 ```sass
 // Bad example
@@ -256,12 +258,12 @@ Why I avoid child-selector? It is yet a good CSS-Feature? No I don’t think so.
 <a name="other">Other</a>
 -----------
 
-* Overall two whitespaces instead tabs for distances
-* One whitespace between element and brace
-* Line-Break between styles and new element
-* Line-Break after closed brace
-* Using HEX instead RGB for colors
-* Convert HEX to RGB with Sass
+* Overall two whitespaces instead of tabs for indentation
+* One whitespace between elements and braces
+* Line breaks between styles and new elements
+* Line breaks after closing braces
+* Use hex codes instead of RGB codes for colors
+* Convert hex codes to RGB with Sass
 * bad example:
   * color: ```rgba(255,255,255,.3);```
 * good example:
