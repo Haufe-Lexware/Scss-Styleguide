@@ -12,13 +12,13 @@ Table of Contents
 6. [Handling breakpoints: Element queries](#handling-breakpoints)
 7. [Categorizing CSS-Rules](#categorizing-css)
 8. [CSS-Stuff](#css-stuff)
+9. [Other](#other)
 
 
 
 <a name="folderstructure">General Principles</a>
 -----------
 
-## Folderstructure
 Having a good structure for your development-process is so important and the basic of all. You should pay attention that the base is mostly equal in each project – it will help you and your co-workers to incorporate easy in new projects. I will show you my personal structure (based on SMACSS):
 
 ```sass
@@ -49,7 +49,6 @@ stylesheets/
 <a name="structure-a-module">Structure a module</a>
 -----------
 
-## Structure a module
 A structure for module? It’s not too much? No I don’t think so. A module can has so much different types or become much complexity.
 
 ```sass
@@ -75,7 +74,6 @@ $button-fontcolor: $white;
 <a name="importing-files">Importing files</a>
 -----------
 
-## Importing files
 In a project there are so many partials. I don’t like to include files in other files. I prefer to have one single file like application.scss  and there I include all other. For this I created a structure like in this example:
 
 ```sass
@@ -101,7 +99,6 @@ In a project there are so many partials. I don’t like to include files in othe
 <a name="naming-conventions">Naming conventions (BEM/SMACSS)</a>
 -----------
 
-## Naming conventions (BEM / SMACSS)
 ### Block, Element, Modifier / Scalable and modular architecture for CSS
 I love both methods. Above all SMACSS is a must read for every frontend-developer, which want to write scalable frontends. Jonathan Snook is the author and he wrote all his experience in a little book. Combine these two methods is the best way for me to handle naming.
 
@@ -132,7 +129,6 @@ I love both methods. Above all SMACSS is a must read for every frontend-develope
 <a name="variables">Variables</a>
 -----------
 
-## Variables
 At first we create a palette for globally usage like colors. We define it in the _config.scss . If we have some specific variables, then we put it in the file for the module. Readability is so important and because of this I use separators in variable-naming: a hyphen.
 
 ```sass
@@ -150,7 +146,6 @@ $button-fontcolor: $white;
 <a name="handling-breakpoints">Handling Breakpoints: Element Queries</a>
 -----------
 
-## Handling Breakpoints: Element Queries
 Element Queries? What do you write, Tim? Uhh, Element Queries with Sass are so much better than the mediaqueries. Do you know how it is too have all your specific responsive styles in an own file? This is crappy I think. You write modules, then you should declare the responsive behaviour of it there. **Not in another file.**
 
 ```sass
@@ -198,7 +193,6 @@ It’s not important for the performance that we have only one declaration of th
 <a name="categorizing-css">Categorizing CSS-Rules</a>
 -----------
 
-## Categorizing CSS-Rules
 If I write CSS / Scss I am really consistent and want to set rules for all kind of stuff. Because of this I have rules for categorizing my styles.
 
 ```sass
@@ -230,7 +224,6 @@ If I write CSS / Scss I am really consistent and want to set rules for all kind 
 <a name="css-stuff">CSS-Stuff</a>
 -----------
 
-## CSS-Stuff
 ### Avoid ID’s
 ID’s are really hard. They are to specific and mostly necessary for JS-Hooks. The better way is to use classes.
 
@@ -254,7 +247,9 @@ Why I avoid child-selector? It is yet a good CSS-Feature? No I don’t think so.
 .m-tabs__trigger {}
 ```
 
-## Other
+<a name="other">Other</a>
+-----------
+
 * Overall two whitespaces instead tabs for distances
 * One whitespace between element and brace
 * Line-Break between styles and new element
