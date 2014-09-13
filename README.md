@@ -14,11 +14,12 @@ Table of Contents
 2. [Formatting](#structure-a-module)
 3. [Importing files](#importing-files)
 4. [Naming conventions (BEM/SMACSS)](#naming-conventions)
-5. [Variables](#variables)
-6. [Handling breakpoints: Element queries](#handling-breakpoints)
-7. [Categorizing CSS-Rules](#categorizing-css)
-8. [CSS-Stuff](#css-stuff)
-9. [Other](#other)
+5. [Comments (Sassdoc)](#comments)
+6. [Variables](#variables)
+7. [Handling breakpoints: Element queries](#handling-breakpoints)
+8. [Categorizing CSS-Rules](#categorizing-css)
+9. [CSS-Stuff](#css-stuff)
+10. [Other](#other)
 
 
 
@@ -100,6 +101,43 @@ In a project there are so many partials. I don’t like to include files in othe
 * Structure in base, layouts and modules
 * For each section only declare @import  once
 * Remove file-ending
+
+
+<a name="comments">Comments (Sassdoc)</a>
+-----------
+
+To documentate the code is so important everytime. If you take a look at the environment after a few time, you ask yourself what did you write. It's hard to follow without comments and there I give you one advice, specially for Sass: *use [Sassdoc](https://github.com/SassDoc/sassdoc)* It's an awesome tool to create a solid documentation for your variables, mixins, functions etc. You must only write much more comments, but you gain a lot of it.
+
+```sass
+
+/**
+ * Get the width of a column
+ *
+ * @author Tim Hartmann
+ * @group addons
+ *
+ * @param {number} $col - define which column do you need
+ * @param {number} $max-cols (12) - maximum columns
+ *
+ * @example scss
+ * col(4);
+ * // 25%
+ */
+@mixin col($col, $max-cols: 12) {
+  width: (100%/$max-cols)*$col;
+}
+
+```
+*At the first line of your comment, give a small description about the snippet. It helps a lot to have a quick overview.*
+
+`@author`: Declare the person, which wrote this snippet. <br/>
+`@group`: Grouping snippets are great to give it more structure <br/>
+`@param`: Possible parameters for this mixin / function and write the type of each <br/>
+`@example`: Write a quick example how you can use it
+
+
+**[Example](http://scss-components.com/sassdoc/)** <br/>
+**[Sassdoc Documentation](https://github.com/SassDoc/sassdoc)**
 
 
 <a name="naming-conventions">Naming conventions (BEM/SMACSS)</a>
