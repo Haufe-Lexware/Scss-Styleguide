@@ -59,6 +59,8 @@ stylesheets/
 A structure for module? It’s not too much? No I don’t think so. A module can has so much different types or become much complexity.
 
 ```sass
+@charset "UTF-8";
+
 // Config
 $button-bgcolor: $blue;
 $button-fontcolor: $white;
@@ -81,7 +83,7 @@ $button-fontcolor: $white;
 <a name="importing-files">Importing files</a>
 -----------
 
-In a project there are so many partials. I don’t like to include files in other files. I prefer to have one single file like application.scss  and there I include all other. For this I created a structure like in this example:
+In a project there are so many partials. I don’t like to include files in other files. I prefer to have one single file like `application.scss` and there I include all other. For this I created a structure like in this example:
 
 ```sass
 // Base
@@ -101,6 +103,37 @@ In a project there are so many partials. I don’t like to include files in othe
 * Structure in base, layouts and modules
 * For each section only declare @import  once
 * Remove file-ending
+
+
+### Don't blow up your files
+If you have a big project with much modules and variants, then you come to the point to make thoughts about the current structure. You blow up your file with a bunch of code and it's hard to maintain it.
+
+Because of this we need a small improvement of the structure and add some folders if you noticed, that your module need to much lines of code. Then make more small partials and include it in one mainfile for this module.
+
+```sass
+// Base
+@import "_base/_config",
+        "_base/_presets",
+        "_base/_headings";
+
+// Layouts
+@import "_layouts/_l-default";
+
+// Modules
+@import "_modules/_forms/_m-forms";
+```
+
+In the `_m-forms.scss` you must import all the form partials, which are in your `_form` folder. The structure can look like this in one in your file:
+
+```sass
+// Partials
+@import "_m-form-base",
+        "_m-form-two-one-small",
+        "_m-form-row",
+        "_m-form-with-prefix";
+```
+
+**You must decide which one do you prefer. I can't say which one do you should use, because of my decision is based on the current project.**
 
 
 <a name="comments">Comments (Sassdoc)</a>
