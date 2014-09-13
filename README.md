@@ -14,11 +14,12 @@ Table of Contents
 2. [Formatting](#structure-a-module)
 3. [Importing files](#importing-files)
 4. [Naming conventions (BEM/SMACSS)](#naming-conventions)
-5. [Variables](#variables)
-6. [Handling breakpoints: Element queries](#handling-breakpoints)
-7. [Categorizing CSS-Rules](#categorizing-css)
-8. [CSS-Stuff](#css-stuff)
-9. [Other](#other)
+5. [Comments (Sassdoc)](#comments)
+6. [Variables](#variables)
+7. [Handling breakpoints: Element queries](#handling-breakpoints)
+8. [Categorizing CSS-Rules](#categorizing-css)
+9. [CSS-Stuff](#css-stuff)
+10. [Other](#other)
 
 
 
@@ -43,9 +44,6 @@ scss/
 |  |- _m-buttons.scss
 |  |- _m-tabs.scss
 
-|- _states/
-|  |- _s-buttons.scss
-|  |- _s-tabs.scss
 |- application.scss
 
 stylesheets/
@@ -58,6 +56,8 @@ stylesheets/
 A structure for modules? Is that not too much? No, I don’t think so. A module can have so many different types or become very complex, a well planned structure will help you a lot.
 
 ```sass
+@charset "UTF-8";
+
 // Config
 $button-bgcolor: $blue;
 $button-fontcolor: $white;
@@ -66,21 +66,18 @@ $button-fontcolor: $white;
 .m-button {}
 .m-button--primary {}
 .m-button--secondary {}
-
-// States
-@import "../_states/_s-buttons";
 ```
 
-#### The module has three different sections
-* At first, we have an area for configurations named *Config*. There, you define often used properties like colors.
-* Now, the main part of the file: *Base*. Writing all the styles here for all types of the module
-* The footer is named *States*. There you import the states for the current module. Nothing more.
+#### The module has ~~three~~ two different sections
+* At first we have a area for Config. There I define specific colors or other stuff for configuration like colors.
+* Now the main part of the file, Base. Writing all the styles here for all types of the module
+* ~~The footer called States. Here I import the states for the current module. Not more.~~
 
 
 <a name="importing-files">Importing files</a>
 -----------
 
-In a project, there are so many partials. I don’t like to include files in other files, I prefer having one single file like `application.scss` and there I include all the others. For this, I creat a structure like this:
+In a project there are so many partials. I don’t like to include files in other files. I prefer to have one single file like `application.scss` and there I include all other. For this I created a structure like in this example:
 
 ```sass
 // Base
@@ -100,6 +97,74 @@ In a project, there are so many partials. I don’t like to include files in oth
 * Structure in base, layouts and modules
 * For each section declare `@import` only once
 * Remove file-ending
+
+
+### Don't blow up your files
+If you have a big project with much modules and variants, then you come to the point to make thoughts about the current structure. You blow up your file with a bunch of code and it's hard to maintain it.
+
+Because of this we need a small improvement of the structure and add some folders if you noticed, that your module need to much lines of code. Then make more small partials and include it in one mainfile for this module.
+
+```sass
+// Base
+@import "_base/_config",
+        "_base/_presets",
+        "_base/_headings";
+
+// Layouts
+@import "_layouts/_l-default";
+
+// Modules
+@import "_modules/_forms/_m-forms";
+```
+
+In the `_m-forms.scss` you must import all the form partials, which are in your `_form` folder. The structure can look like this in one in your file:
+
+```sass
+// Partials
+@import "_m-form-base",
+        "_m-form-two-one-small",
+        "_m-form-row",
+        "_m-form-with-prefix";
+```
+
+**You must decide which one do you prefer. I can't say which one do you should use, because of my decision is based on the current project.**
+
+
+<a name="comments">Comments (Sassdoc)</a>
+-----------
+
+To documentate the code is so important everytime. If you take a look at the environment after a few time, you ask yourself what did you write. It's hard to follow without comments and there I give you one advice, specially for Sass: *use [Sassdoc](https://github.com/SassDoc/sassdoc)* It's an awesome tool to create a solid documentation for your variables, mixins, functions etc. You must only write much more comments, but you gain a lot of it.
+
+```sass
+
+/**
+ * Get the width of a column
+ *
+ * @author Tim Hartmann
+ * @group addons
+ *
+ * @param {number} $col - define which column do you need
+ * @param {number} $max-cols (12) - maximum columns
+ *
+ * @example scss
+ * col(4);
+ * // 25%
+ */
+@mixin col($col, $max-cols: 12) {
+  width: (100%/$max-cols)*$col;
+}
+
+```
+*At the first line of your comment, give a small description about the snippet. It helps a lot to have a quick overview.*
+
+`@author`: Declare the person, which wrote this snippet. <br/>
+`@group`: Grouping snippets are great to give it more structure <br/>
+`@param`: Possible parameters for this mixin / function and write the type of each <br/>
+`@example`: Write a quick example how you can use it
+
+
+**[Example](http://scss-components.com/sassdoc/)** <br/>
+**[Sassdoc Documentation](https://github.com/SassDoc/sassdoc)**
 
 
 <a name="naming-conventions">Naming conventions (BEM/SMACSS)</a>
