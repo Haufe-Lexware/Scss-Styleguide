@@ -44,9 +44,6 @@ scss/
 |  |- _m-buttons.scss
 |  |- _m-tabs.scss
 
-|- _states/
-|  |- _s-buttons.scss
-|  |- _s-tabs.scss
 |- application.scss
 
 stylesheets/
@@ -69,15 +66,12 @@ $button-fontcolor: $white;
 .m-button {}
 .m-button--primary {}
 .m-button--secondary {}
-
-// States
-@import "../_states/_s-buttons";
 ```
 
 #### The module has three different sections
 * At first we have a area for Config. There I define specific colors or other stuff for configuration like colors.
 * Now the main part of the file, Base. Writing all the styles here for all types of the module
-* The footer called States. Here I import the states for the current module. Not more.
+* ~~The footer called States. Here I import the states for the current module. Not more.~~
 
 
 <a name="importing-files">Importing files</a>
