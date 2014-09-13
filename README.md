@@ -68,7 +68,7 @@ $button-fontcolor: $white;
 .m-button--secondary {}
 ```
 
-#### The module has three different sections
+#### The module has ~~three~~ two different sections
 * At first we have a area for Config. There I define specific colors or other stuff for configuration like colors.
 * Now the main part of the file, Base. Writing all the styles here for all types of the module
 * ~~The footer called States. Here I import the states for the current module. Not more.~~
