@@ -11,19 +11,19 @@ Table of Contents
 -----------------
 
 1. [Folder Structure](#folderstructure)
-2. [Formatting](#structure-a-module)
-3. [Importing files](#importing-files)
-4. [Naming conventions (BEM/SMACSS)](#naming-conventions)
+2. [Structure a Module](#structure-a-module)
+3. [Importing Files](#importing-files)
+4. [Naming Conventions (BEM/SMACSS)](#naming-conventions)
 5. [Comments (Sassdoc)](#comments)
 6. [Variables](#variables)
-7. [Handling breakpoints: Element queries](#handling-breakpoints)
+7. [Handling Breakpoints: Element Queries](#handling-breakpoints)
 8. [Categorizing CSS-Rules](#categorizing-css)
 9. [CSS-Stuff](#css-stuff)
 10. [Other](#other)
 
 
 
-<a name="folderstructure">General Principles</a>
+<a name="folderstructure">Folderstructure</a>
 -----------
 
 Having a good structure for your development process is so important and the basic of all. You should pay attention that the base is mostly the same in every project – it will help you and your co-workers to incorporate easily in new projects. I will show you my personal structure (based on SMACSS):
@@ -69,7 +69,7 @@ $button-fontcolor: $white;
 ```
 
 #### The module has ~~three~~ two different sections
-* At first we have a area for Config. There I define specific colors or other stuff for configuration like colors.
+* At first we have a area for Config. There I define specific colors or other stuff.
 * Now the main part of the file, Base. Writing all the styles here for all types of the module
 * ~~The footer called States. Here I import the states for the current module. Not more.~~
 
@@ -117,7 +117,7 @@ Because of this we need a small improvement of the structure and add some folder
 @import "_modules/_forms/_m-forms";
 ```
 
-In the `_m-forms.scss` you must import all the form partials, which are in your `_form` folder. The structure can look like this in one in your file:
+In the `_m-forms.scss` you must import all the form partials, which are in your `_forms` folder. The structure can look like this in one in your file:
 
 ```sass
 // Partials
@@ -217,7 +217,7 @@ $button-fontcolor: $white;
 <a name="handling-breakpoints">Handling Breakpoints: Element Queries</a>
 -----------
 
-Element Queries? What do you write, Tim? Uhh, Element Queries with Sass are so much better than media queries. Do you know how it is to have all your specific responsive styles in an own file? In my opinion, that is crap. If you write modules you should declare the responsive behavior of it there. **Not in another file.**
+"Element Queries"? What do you write, Tim? Uhh, "Element Queries" with Sass are so much better than media queries. Do you know how it is to have all your specific responsive styles in an own file? In my opinion, that is crap. If you write modules you should declare the responsive behavior of it there. **Not in another file.**
 
 ```sass
 // Scss
@@ -258,13 +258,13 @@ Element Queries? What do you write, Tim? Uhh, Element Queries with Sass are so m
 }
 ```
 
-It is not important for the performance to have only one declaration of a media query. Thus, we can use it like **Element Queries.** Read more about this in [a blog post](http://helloanselm.com/2014/web-performance-one-or-thousand-media-queries/) by Anselm Hannemann who had the same question.
+It is not important for the performance to have only one declaration of a media query. Thus, we can use it like **"Element Queries".** Read more about this in [a blog post](http://helloanselm.com/2014/web-performance-one-or-thousand-media-queries/) by Anselm Hannemann who had the same question.
 
 
 <a name="categorizing-css">Categorizing CSS-Rules</a>
 -----------
 
-If I write CSS / Scss I am really consistent and want to set rules for all kinds of stuff. Thus, I have a couple of rules for categorizing my styles.
+If I write Scss I am really consistent and want to set rules for all kinds of stuff. Thus, I have a couple of rules for categorizing my styles.
 
 ```sass
 // Element-Base
@@ -304,7 +304,7 @@ You need this only if you want really want to overwrite styles. If your code str
 
 ### Avoid child selectors
 Why do I avoid child selectors? Isn't it a good CSS-Feature, is it? No, I don’t think so.
-When I started with coding, I used it quite often. However, the more I learned about (S)CSS the more I noticed that it makes a module too specific. It depends on the structure of your HTML and can make it quite difficult to change its structure afterwards. **Use classes!**
+When I started with coding, I used it quite often. However, the more I learned about (S)CSS the more I noticed that it makes a module too specific. It depends on the structure of your HTML and can make it quite difficult to change its structure afterwards. **Use much more classes!**
 
 ```sass
 // Bad example
