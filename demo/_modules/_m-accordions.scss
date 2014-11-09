@@ -1,0 +1,17 @@
+// 1.Config
+$accordion-bgcolor: $gray !default;
+$accordion-trigger-color: $gray-dark !default;
+
+// 2.Base
+.m-accordion {
+  background: $accordion-bgcolor;
+}
+
+.m-accordion__trigger {
+  color: $accordion-trigger-color;
+}
+
+// Name: Plain Accordion
+.m-accordion--plain {
+  background: transparent;
+}
