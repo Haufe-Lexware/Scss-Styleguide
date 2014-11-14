@@ -28,7 +28,7 @@ Table of Contents
 
 Having a good structure for your development process is so important and the basic of all. You should pay attention that the base is mostly the same in every project – it will help you and your co-workers to incorporate easily in new projects. I will show you my personal structure (based on SMACSS):
 
-```sass
+```scss
 scss/
 |- _base/
 |  |- _config.scss
@@ -55,7 +55,7 @@ stylesheets/
 
 A structure for modules? Is that not too much? No, I don’t think so. A module can have so many different types or become very complex, a well planned structure will help you a lot.
 
-```sass
+```scss
 @charset "UTF-8";
 
 // Config
@@ -79,7 +79,7 @@ $button-fontcolor: $white;
 
 In a project there are so many partials. I don’t like to include files in other files. I prefer to have one single file like `application.scss` and there I include all other. For this I created a structure like in this example:
 
-```sass
+```scss
 // Base
 @import "_base/_config",
         "_base/_presets",
@@ -104,7 +104,7 @@ If you have a big project with much modules and variants, then you come to the p
 
 Because of this we need a small improvement of the structure and add some folders if you noticed, that your module need to much lines of code. Then make more small partials and include it in one mainfile for this module.
 
-```sass
+```scss
 // Base
 @import "_base/_config",
         "_base/_presets",
@@ -119,7 +119,7 @@ Because of this we need a small improvement of the structure and add some folder
 
 In the `_m-forms.scss` you must import all the form partials, which are in your `_forms` folder. The structure can look like this in one in your file:
 
-```sass
+```scss
 // Partials
 @import "_m-form-base",
         "_m-form-two-one-small",
@@ -135,7 +135,7 @@ In the `_m-forms.scss` you must import all the form partials, which are in your 
 
 To documentate the code is so important everytime. If you take a look at the environment after a few time, you ask yourself what did you write. It's hard to follow without comments and there I give you one advice, specially for Sass: *use [Sassdoc](https://github.com/SassDoc/sassdoc)* It's an awesome tool to create a solid documentation for your variables, mixins, functions etc. You must only write much more comments, but you gain a lot of it.
 
-```sass
+```scss
 
 /**
  * Get the width of a column
@@ -173,7 +173,7 @@ To documentate the code is so important everytime. If you take a look at the env
 ### Block, Element, Modifier / Scalable and modular architecture for CSS
 I love both ways. However, SMACSS is a must read for every frontend-developer who wants to write scalable front-ends. Jonathan Snook is the author and he wrote down everything about his experience in a book. Combining these two methods is the best way for me to handle naming conventions.
 
-```sass
+```scss
 // Layouts
 // Prefix "l-"
 .l-default {}
@@ -202,7 +202,7 @@ I love both ways. However, SMACSS is a must read for every frontend-developer wh
 
 At first, we create a palette for globally usaged things like colors in the `_config.scss` file. If you have some specific variables, then put them in the file for the module. Readability is very important and because of this I use separators in variable-naming: a **hyphen**.
 
-```sass
+```scss
 // Colors (global)
 $white: #fff;
 $blue: #1675d6;
@@ -219,7 +219,7 @@ $button-fontcolor: $white;
 
 "Element Queries"? What do you write, Tim? Uhh, "Element Queries" with Sass are so much better than media queries. Do you know how it is to have all your specific responsive styles in an own file? In my opinion, that is crap. If you write modules you should declare the responsive behavior of it there. **Not in another file.**
 
-```sass
+```scss
 // Scss
 .m-navigation {
   &:after {
@@ -266,7 +266,7 @@ It is not important for the performance to have only one declaration of a media 
 
 If I write Scss I am really consistent and want to set rules for all kinds of stuff. Thus, I have a couple of rules for categorizing my styles.
 
-```sass
+```scss
 // Element-Base
 .element {
   margin: 10px;
@@ -306,7 +306,7 @@ You need this only if you want really want to overwrite styles. If your code str
 Why do I avoid child selectors? Isn't it a good CSS-Feature, is it? No, I don’t think so.
 When I started with coding, I used it quite often. However, the more I learned about (S)CSS the more I noticed that it makes a module too specific. It depends on the structure of your HTML and can make it quite difficult to change its structure afterwards. **Use much more classes!**
 
-```sass
+```scss
 // Bad example
 // Child-selector
 .m-tabs > li {}
@@ -334,7 +334,7 @@ When I started with coding, I used it quite often. However, the more I learned a
 * good example:
   * color: ```rgba(#000, .3);```
 
-```sass
+```scss
 // Same styles for more than one element
 // Separation with a line-break
 .element,

@@ -27,7 +27,7 @@ Inhaltsverzeichnis
 Es ist unglaublich wichtig eine gute Struktur für den Entwicklungsprozess zu haben und ist sozusagen die Basis von allem. Besonderes Augenmerk sollte darauf gelegt werden, dass Strukturen in jeglichen Projekten gleich sind oder sich zumindest ähneln - es wird besonders im Team mit anderen Entwicklern helfen, sich zurecht zu finden in fremden Projekten.
 Daher werde ich dir nun meine persönliche Struktur, basierend auf SMACSS, zeigen:
 
-```sass
+```scss
 scss/
 |- _base/
 |  |- _config.scss
@@ -54,7 +54,7 @@ stylesheets/
 
 Eine Struktur für Module? Man könnte meinen, dass es zu weit ginge, doch das denke ich eher nicht. Es kann deutlich an Komplexität, durch diverse Variationen, gewinnen. Daher ist es besonders wichtig eine Struktur zu schaffen die weiterhin Übersichtlichkeit schafft.
 
-```sass
+```scss
 @charset "UTF-8";
 
 // Config
@@ -78,7 +78,7 @@ $button-fontcolor: $white;
 
 Ein Projekt besteht meist aus sehr vielen Bausteinen. Ich mag es nicht, wenn man das Inkludieren von Dateien zu sehr verschachelt. Daher bevorzuge ich es eine Datei zu haben, worin man alle Bausteine importiert - in meinem Fall die `application.scss`. Dafür habe ich eine Struktur, wie in diesem Beispiel, entwickelt:
 
-```sass
+```scss
 // Base
 @import "_base/_config",
         "_base/_presets",
@@ -102,7 +102,7 @@ Wenn du ein großes Projekt mit sehr vielen Modulen und Varianten hast, dann mus
 
 Daher müssen wir kleine Verbesserung an der Struktur vornehmen und Ordner hinzufügen, wenn du merkst dass die Dateien zu groß werden. Also teilen wir diese noch einmal in kleine Bausteine auf und importieren alle in einer Datei.
 
-```sass
+```scss
 // Base
 @import "_base/_config",
         "_base/_presets",
@@ -117,7 +117,7 @@ Daher müssen wir kleine Verbesserung an der Struktur vornehmen und Ordner hinzu
 
 In der `_m-forms.scss` musst alle Bausteine vom Modul "Form" importieren - sie befinden sich im Ordner `_forms`. Die Struktur kann wie in dieser Datei aussehen:
 
-```sass
+```scss
 // Bausteine
 @import "_m-form-base",
         "_m-form-two-one-small",
@@ -132,7 +132,7 @@ In der `_m-forms.scss` musst alle Bausteine vom Modul "Form" importieren - sie b
 
 Es ist unglaublich wichtig den Code sauber zu dokumentieren. Wenn du länger nicht an einem Projekt gearbeitet hast und dann wieder darauf schaust, dann wirst du dich fragen was du dort geschrieben hast. Es ist schwer alles nachzuvollziehen ohne Kommentare und daher gebe ich dir den Ratschlag, besonders in Sass, *[Sassdoc](https://github.com/SassDoc/sassdoc)* zu benutzen. Es ist ein schönes Tool um eine solide Dokumentation für Variablen, Mixins, Funktionen etc. zu erzeugen. Es müssen nur mehr Kommentare geschrieben werden, aber du profitierst davon.
 
-```sass
+```scss
 /**
  * Get the width of a column
  *
@@ -169,7 +169,7 @@ Es ist unglaublich wichtig den Code sauber zu dokumentieren. Wenn du länger nic
 ### Block, Element, Modifizierung / Skalierbare und modulare Architektur in CSS
 Ich liebe beide Wege. Wie auch immer, SMACSS ist ein Muss für jeden Frontend-Entwickler, der skalierbare Frontends bauen möchte. Jonathan Snook ist der Autor und hat seine Erfahrung in diesem Buch niedergeschrieben. In meinen Augen ist die Kombination aus beiden Techniken der beste Weg für die Namenskonvention.
 
-```sass
+```scss
 // Layouts
 // Prefix "l-"
 .l-default {}
@@ -197,7 +197,7 @@ Ich liebe beide Wege. Wie auch immer, SMACSS ist ein Muss für jeden Frontend-En
 
 Zuerst wird eine Palette mit allen Farben gebaut, die für den globalen Einsatz gedacht ist - alles in der `_config.scss`. Wenn du modulspezifische Variablen hast, dann packe sie in die Datei des passenden Moduls. Lesbarkeit ist sehr wichtig und daher benutze ich einen Trenner in der Benamung von Variablen: ein **Bindestrich**.
 
-```sass
+```scss
 // Farben (global)
 $white: #fff;
 $blue: #1675d6;
@@ -213,7 +213,7 @@ $button-fontcolor: $white;
 
 "Element Queries"? Was schreibst du da, Tim? Uhh, "Element Queries" sind so viel besser mit Sass als Media Queries. Weißt du noch, als du all deine Styles für das anpassbare Verhalten in einer eigenen Datei ausgelagert hast? Meiner Meinung nach ist das schlecht. Wenn du ein Modul schreibst, dann solltest du auch dort das Verhalten regeln. **Nicht in einer anderen Datei.**
 
-```sass
+```scss
 // Scss
 .m-navigation {
   &:after {
@@ -260,7 +260,7 @@ Für die Performance ist es nicht ausschlaggebend, dass man nur einmal einen Med
 
 Wenn ich Scss schreibe, dann bin ich sehr konsequent und möchte Regeln für jegliche Dinge festlegen. Ich hab ein paar für die Kategorisierung aufgestellt:
 
-```sass
+```scss
 // Basis
 .element {
   margin: 10px;
@@ -299,7 +299,7 @@ Wenn du `!important` benötigst, dann ist es mit deiner Architektur in CSS komis
 Warum sollte man dies vermeiden? Ist es nicht ein cooles CSS-Feature? Ich denke eher nicht.
 Als ich damals mit dem Coding angefangen habe, dort habe ich es sehr oft verwendet. Wie auch immer, ich habe gelernt dass es ein Modul zu spezifisch macht. Dadurch basiert das CSS auf die Struktur des Moduls und daher sind Änderung daran weniger möglich. **Benutze mehr Klassen!**
 
-```sass
+```scss
 // Bad example
 // Child-selector
 .m-tabs > li {}
@@ -327,7 +327,7 @@ Als ich damals mit dem Coding angefangen habe, dort habe ich es sehr oft verwend
 * Gutes Beispiel:
   * color: ```rgba(#000, .3);```
 
-```sass
+```scss
 // Die selben Styles für mehr als ein Element
 // Trennung durch einen Zeilenumbruch
 .element,
